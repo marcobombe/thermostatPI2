@@ -1,5 +1,4 @@
 # always seem to need this
-import os
 import sys
 
 # This gets the Qt stuff
@@ -19,6 +18,9 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
         print("Application quit.")
         QtCore.QCoreApplication.instance().quit()
 
+    def location_on_the_screen(self):
+        self.move(0, -3)
+
     def __init__(self):
         super(self.__class__, self).__init__()
 
@@ -33,6 +35,7 @@ def main():
     # a new app instance
     app = QApplication(sys.argv)
     form = MainWindow()
+    form.location_on_the_screen()
     form.show()
 
     # without this, the script exits immediately.
